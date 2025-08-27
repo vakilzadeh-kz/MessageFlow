@@ -39,15 +39,15 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
-      # Step 5: Run the build command
-      # This command compiles the code, runs tests, and assembles the application
-      - name: Build with Gradle
-        run: ./gradlew build
+      # Step 5: Run the build command to generate the APK
+      # This command compiles the code and assembles the debug APK
+      - name: Build debug APK with Gradle
+        run: ./gradlew assembleDebug
 
-      # Step 6: Upload the JAR as a build artifact
-      # This action takes the generated JAR and uploads it so it can be downloaded from the workflow run page
-      - name: Upload JAR
+      # Step 6: Upload the APK as a build artifact
+      # This action takes the generated APK and uploads it so it can be downloaded from the workflow run page
+      - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: app-jar
-          path: app/build/libs/*.jar
+          name: app-debug-apk
+          path: app/build/outputs/apk/debug/app-debug.apk
