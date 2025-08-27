@@ -4,6 +4,7 @@ plugins {
 }
 
 android {
+    namespace 'com.example.messageflow' // <-- Add this line
     compileSdkVersion 34
 
     defaultConfig {
